@@ -1,0 +1,112 @@
+{
+  "id": 1,
+  "titulo": "BANDIDO",
+  "artista": "AZUCAR MORENO",
+  "duracion": 180000,
+  "lineas": [
+    {
+      "tiempo": 2000,
+      "texto": "La luna me embrujó y me llevó hasta ti,"
+    },
+    {
+      "tiempo": 4500,
+      "texto": "veneno del amor que yo feliz bebí"
+    },
+    {
+      "tiempo": 7000,
+      "texto": "Y aunque mi pecho ardió y me abrasó la piel,"
+    },
+    {
+      "tiempo": 9500,
+      "texto": "me supo dulce como la miel"
+    },
+    {
+      "tiempo": 12000,
+      "texto": "Tus ojos bandido robaron con cuentos la sangre"
+    },
+    {
+      "tiempo": 14500,
+      "texto": "y la vida de mi corazón"
+    },
+    {
+      "tiempo": 17000,
+      "texto": "Tu ausencia en mis noches provoca lamentos,"
+    },
+    {
+      "tiempo": 19500,
+      "texto": "suspiros y llantos, y oscura pasión"
+    },
+    {
+      "tiempo": 22000,
+      "texto": "Y ahora cada vez que de mi lado te vas,"
+    },
+    {
+      "tiempo": 24500,
+      "texto": "siento el dolor crecer más y más"
+    },
+    {
+      "tiempo": 27000,
+      "texto": "Tus ojos bandido robaron con cuentos la sangre"
+    },
+    {
+      "tiempo": 29500,
+      "texto": "y la vida de mi corazón"
+    },
+    {
+      "tiempo": 32000,
+      "texto": "Tu ausencia en mis noches provoca lamentos,"
+    },
+    {
+      "tiempo": 34500,
+      "texto": "suspiros y llantos, y oscura pasión"
+    },
+    {
+      "tiempo": 37000,
+      "texto": "Así que abrázame con furia de huracán,"
+    },
+    {
+      "tiempo": 39500,
+      "texto": "que el fuego de tu amor sea como un volcán"
+    },
+    {
+      "tiempo": 42000,
+      "texto": "Y luego bésame, atrápame en tu red,"
+    },
+    {
+      "tiempo": 44500,
+      "texto": "que al fin tus labios colmen mi sed"
+    },
+    {
+      "tiempo": 47000,
+      "texto": "Tus ojos bandido robaron con cuentos la sangre"
+    },
+    {
+      "tiempo": 49500,
+      "texto": "y la vida de mi corazón"
+    },
+    {
+      "tiempo": 52000,
+      "texto": "Tu ausencia en mis noches provoca lamentos,"
+    },
+    {
+      "tiempo": 54500,
+      "texto": "suspiros y llantos, y oscura pasión"
+    },
+    {
+      "tiempo": 57000,
+      "texto": "Tus ojos bandido robaron con cuentos la sangre"
+    },
+    {
+      "tiempo": 59500,
+      "texto": "y la vida de mi corazón"
+    },
+    {
+      "tiempo": 62000,
+      "texto": "Tu ausencia en mis noches provoca lamentos,"
+    },
+    {
+      "tiempo": 64500,
+      "texto": "suspiros y llantos, y oscura pasión"
+    }
+  ]
+}
