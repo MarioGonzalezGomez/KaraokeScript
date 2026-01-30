@@ -119,28 +119,101 @@ class IPFProtocol:
 class KaraokeMessages(IPFProtocol):
     """
     Constructor específico de mensajes para Karaoke.
-    AQUÍ es donde debes modificar si cambian los objetos en IPF.
+    Implementa: Entra, Cambio de frases, Sale.
     """
     def __init__(self, db_name, root_obj="KARAOKE"):
         super().__init__(db_name)
         self.root_obj = root_obj
-        # Sub-objetos (adaptar según tu escena gráfica)
-        self.obj_texto = f"{root_obj}/TEXTO" 
-        self.obj_visibilidad = f"{root_obj}/VISIBILIDAD" 
-
-    def set_texto(self, texto):
-        """Cambia el texto de la línea de karaoke."""
-        # Propiedad TEXT_STRING es estándar en IPF para objetos de texto
-        return self.itemset(self.obj_texto, "TEXT_STRING", texto)
-
-    def mostrar(self):
-        """Muestra el grafismo (Ejemplo: Play de animación In)."""
-        return self.event_run(f"{self.root_obj}/ENTRA")
-
-    def ocultar(self):
-        """Oculta el grafismo (Ejemplo: Play de animación Out)."""
-        return self.event_run(f"{self.root_obj}/SALE")
+        # Objetos específicos definidos por el usuario
+        self.obj_texto_l1 = "KaraokeL1" 
+        self.obj_texto_l2 = "KaraokeL2"
+        self.obj_efecto_l1 = "KARAOKEEL1"
+        self.obj_efecto_l2 = "KARAOKEEL2"
         
+        self.evt_entra = f"{root_obj}/ENTRA"
+        self.evt_sale = f"{root_obj}/SALE"
+
+    def split_smart(self, text, max_len=26):
+        """
+        Divide el texto en dos líneas balanceadas si excede max_len.
+        Si cabe en una, devuelve ("", text).
+        """
+        text = text.strip()
+        if len(text) <= max_len:
+            return "", text
+        
+        # Buscar el espacio más cercano al centro para balancear
+        center = len(text) // 2
+        best_split = -1
+        min_dist = len(text)
+        
+        for i, char in enumerate(text):
+            if char == ' ':
+                dist = abs(i - center)
+                if dist < min_dist:
+                    min_dist = dist
+                    best_split = i
+        
+        if best_split != -1:
+            line1 = text[:best_split].strip()
+            line2 = text[best_split:].strip()
+            return line1, line2
+        else:
+            # Fallback forzoso si no hay espacios
+            return text[:center], text[center:]
+
+    def entra(self, texto_completo):
+        """
+        Secuencia de ENTRADA (Primer verso).
+        itemset("KaraokeL1", "MAP_STRING_PAR", 'Linea1Texto')
+        itemset("KaraokeL2", "MAP_STRING_PAR", 'Linea2Texto')
+        itemset("KARAOKE/ENTRA", "EVENT_RUN")
+        """
+        l1, l2 = self.split_smart(texto_completo)
+        
+        cmds = []
+        cmds.append(self.itemset(self.obj_texto_l1, "MAP_STRING_PAR", l1))
+        cmds.append(self.itemset(self.obj_texto_l2, "MAP_STRING_PAR", l2))
+        cmds.append(self.event_run(self.evt_entra))
+        
+        return "".join(cmds)
+
+    def cambio(self, texto_completo):
+        """
+        Secuencia de CAMBIO DE FRASE.
+        itemset("KARAOKEEL1", "TEXT_FX_GOOUT")
+        itemset("KARAOKEEL2", "TEXT_FX_GOOUT")
+        itemgo("KaraokeL1", "MAP_STRING_PAR", 'Linea1TextoNueva', 0, 0.15)
+        itemgo("KaraokeL2", "MAP_STRING_PAR", 'Linea2TextoNueva', 0, 0.15)
+        itemgo("KARAOKEEL1", "TEXT_FX_GOIN", 0, 0.16)
+        itemgo("KARAOKEEL2", "TEXT_FX_GOIN", 0, 0.16)
+        """
+        l1, l2 = self.split_smart(texto_completo)
+        
+        cmds = []
+        # Go Out
+        cmds.append(self.itemset(self.obj_efecto_l1, "TEXT_FX_GOOUT"))
+        cmds.append(self.itemset(self.obj_efecto_l2, "TEXT_FX_GOOUT"))
+        
+        # Change Text (con delay 0.15s)
+        # Nota: itemgo(obj, prop, val, anim_time, delay)
+        # Asumimos anim_time=0 como en el ejemplo del usuario
+        cmds.append(self.itemgo(self.obj_texto_l1, "MAP_STRING_PAR", l1, 0, 0.15))
+        cmds.append(self.itemgo(self.obj_texto_l2, "MAP_STRING_PAR", l2, 0, 0.15))
+        
+        # Go In (con delay 0.16s)
+        cmds.append(self.itemgo(self.obj_efecto_l1, "TEXT_FX_GOIN", 0, 0.16))
+        cmds.append(self.itemgo(self.obj_efecto_l2, "TEXT_FX_GOIN", 0, 0.16))
+        
+        return "".join(cmds)
+
+    def sale(self):
+        """
+        Secuencia de SALIDA.
+        itemset("KARAOKE/SALE", "EVENT_RUN")
+        """
+        return self.event_run(self.evt_sale)
+        
+    # Alias / Compatibilidad si fuera necesario
     def reset(self):
-        """Resetea estado."""
-        return self.itemset(self.root_obj, "RESET")
+        return self.sale()
