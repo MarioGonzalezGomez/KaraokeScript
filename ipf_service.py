@@ -45,17 +45,15 @@ class IPFClient:
             print("🔌 Desconectado de IPF")
 
     def send(self, message):
-        """Envía un mensaje UTF-8 al servidor."""
+        """Envía un mensaje al servidor (codificación Windows-1252/ANSI)."""
         if not self.connected or not self.sock:
             # Intentar reconectar una vez si se perdió
             if not self.connect():
                 return False
 
         try:
-            # Nota: En C# usaban GetBytys(UTF8). Python usa encode('utf-8').
-            # A veces IPF necesita un terminador como \n o \r\n, pero el C# original no mostraba uno explícito 
-            # más allá del WriteAsync. Asumiremos raw string por ahora.
-            data = message.encode('utf-8')
+            # Configurado a cp1252 para compatibilidad con caracteres españoles en sistemas legacy/IPF
+            data = message.encode('cp1252', errors='replace')
             self.sock.sendall(data)
             return True
         except Exception as e:
@@ -106,11 +104,16 @@ class IPFProtocol:
         else:
             return f"itemset('{full_obj}','{propiedad}');"
 
-    def itemgo(self, objeto, propiedad, valor="0", anim_time=0.0, delay=0.0):
+    def itemgo(self, objeto, propiedad, valor="0", anim_time=0, delay=0):
         """Genera el comando itemgo (animación)."""
         full_obj = f"<{self.db_name}>{objeto}"
         f_val = self._format_value(valor)
-        return f"itemgo('{full_obj}','{propiedad}',{f_val},{anim_time},{delay});"
+        
+        # Formatear números para quitar .0 si es entero
+        f_time = f"{anim_time:g}"
+        f_delay = f"{delay:g}"
+        
+        return f"itemgo('{full_obj}','{propiedad}',{f_val},{f_time},{f_delay});"
 
     def event_run(self, objeto):
         """Ejecuta un evento EVENT_RUN (play)."""
@@ -167,14 +170,18 @@ class KaraokeMessages(IPFProtocol):
         Secuencia de ENTRADA (Primer verso).
         itemset("KaraokeL1", "MAP_STRING_PAR", 'Linea1Texto')
         itemset("KaraokeL2", "MAP_STRING_PAR", 'Linea2Texto')
-        itemset("KARAOKE/ENTRA", "EVENT_RUN")
+        itemgo("KARAOKE/ENTRA", "EVENT_RUN", 0, 0.1)
         """
         l1, l2 = self.split_smart(texto_completo)
         
         cmds = []
         cmds.append(self.itemset(self.obj_texto_l1, "MAP_STRING_PAR", l1))
         cmds.append(self.itemset(self.obj_texto_l2, "MAP_STRING_PAR", l2))
-        cmds.append(self.event_run(self.evt_entra))
+        
+        # CAMBIO: Formato especial solicitado por el usuario: itemgo(Obj, Prop, Time, Delay)
+        # Se omite el valor. Time=0, Delay=0.1
+        full_obj = f"<{self.db_name}>{self.evt_entra}"
+        cmds.append(f"itemgo('{full_obj}','EVENT_RUN',0,0.2);")
         
         return "".join(cmds)
 

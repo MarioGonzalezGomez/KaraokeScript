@@ -7,6 +7,7 @@ Convierte el archivo de texto con canciones a JSONs individuales
 import json
 import re
 import os
+import glob
 from pathlib import Path
 from typing import Dict, List, Tuple
 
@@ -18,20 +19,33 @@ class KaraokeParser:
         
         # Crear directorio de salida si no existe
         Path(self.output_dir).mkdir(parents=True, exist_ok=True)
+        # Limpiar ficheros antiguos
+        self._limpiar_directorio()
     
+    def _limpiar_directorio(self):
+        print(f"Limpiando directorio {self.output_dir}...")
+        files = glob.glob(os.path.join(self.output_dir, "*.json"))
+        for f in files:
+            try:
+                os.remove(f)
+            except OSError as e:
+                print(f"Error borrando {f}: {e}")
+
     def parsear(self) -> List[Dict]:
         """
-        Parsea el archivo Karaoke.txt y extrae las canciones.
-        Formato esperado:
-        "TITULO" ARTISTA
-        letra línea 1
-        letra línea 2
-        ...
-        
-        (línea en blanco separando canciones)
+        Parsea el archivo txt y extrae las canciones.
+        Intenta UTF-8 y fallback a Latin-1.
         """
-        with open(self.input_file, 'r', encoding='iso-8859-1') as f:
-            lineas_totales = f.readlines()
+        content = ""
+        try:
+            with open(self.input_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+        except UnicodeDecodeError:
+            print("UTF-8 falló, intentando ISO-8859-1...")
+            with open(self.input_file, 'r', encoding='iso-8859-1') as f:
+                content = f.read()
+
+        lineas_totales = content.splitlines()
         
         idx = 0
         while idx < len(lineas_totales):
@@ -47,11 +61,14 @@ class KaraokeParser:
                     idx += 1
                     
                     while idx < len(lineas_totales):
-                        linea_actual = lineas_totales[idx].rstrip('\n')
+                        linea_actual = lineas_totales[idx] # No hacemos strip aun para ver si es vacia
                         linea_strip = linea_actual.strip()
                         
-                        # Detectar siguiente canción o fin de archivo
-                        if linea_strip.startswith('"'):
+                        # Detectar siguiente canción (si empieza por comillas y parece cabecera)
+                        # OJO: A veces una linea de letra podria empezar por comillas (dialogo code), 
+                        # pero el formato dice titulo entre comillas al principio. 
+                        # Asumimos que dentro de la letra NO hay lineas que sean exactamente "TITULO" ARTISTA
+                        if linea_strip.startswith('"') and self._es_cabecera(linea_strip):
                             break
                         
                         # Agregar línea si no está vacía
@@ -67,11 +84,16 @@ class KaraokeParser:
                     }
                     
                     self.canciones.append(cancion)
+                    # No incrementamos idx aquí porque el loop interno ya nos dejó en la siguiente cabecera (o fin)
                     continue
             
             idx += 1
         
         return self.canciones
+    
+    def _es_cabecera(self, linea: str) -> bool:
+        # Check rápido para ver si cumple patrón de cabecera
+        return bool(re.match(r'"([^"]+)"\s+(.+)', linea))
     
     def _extraer_titulo_artista(self, linea: str) -> Tuple[str, str]:
         """
@@ -121,7 +143,7 @@ class KaraokeParser:
                 json.dump(datos_json, f, ensure_ascii=False, indent=2)
             
             archivos_creados.append(ruta_json)
-            print(f"✓ Creado: {ruta_json}")
+            # print(f"✓ Creado: {ruta_json}")
         
         return archivos_creados
     
@@ -132,6 +154,14 @@ class KaraokeParser:
         """
         # Convertir a minúsculas y reemplazar caracteres especiales
         nombre = titulo.lower()
+        # Mapeo de tildes simple
+        replacements = (
+            ("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"),
+            ("ñ", "n"), ("ü", "u")
+        )
+        for a, b in replacements:
+            nombre = nombre.replace(a, b)
+            
         nombre = re.sub(r'[^\w\s]', '', nombre)  # Quitar caracteres especiales
         nombre = re.sub(r'\s+', '_', nombre)     # Espacios a guiones bajos
         return nombre
@@ -149,12 +179,15 @@ class KaraokeParser:
 
 
 def main():
-    # Detectar ruta del archivo Karaoke.txt
-    karaoke_file = "Karaoke.txt"
-    
+    # Detectar ruta del archivo
+    karaoke_file = "CancionesBenidorm.txt"
+    # Si no existe, probar con karaoke.txt por compatibilidad
     if not os.path.exists(karaoke_file):
-        print(f"❌ Error: No se encontró '{karaoke_file}'")
-        return
+        if os.path.exists("Karaoke.txt"):
+            karaoke_file = "Karaoke.txt"
+        else:
+            print(f"❌ Error: No se encontró '{karaoke_file}' ni 'Karaoke.txt'")
+            return
     
     print(f"📖 Parseando '{karaoke_file}'...\n")
     
