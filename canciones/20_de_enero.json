@@ -5,148 +5,184 @@
   "duracion": 0,
   "lineas": [
     {
-      "tiempo": 0,
-      "texto": "Pensé que era un buen momento"
+      "tiempo": 1000,
+      "texto": "Pensé que era un buen momento",
+      "tiempo_fin": 2000
     },
     {
-      "tiempo": 0,
-      "texto": "Por fin se hacía realidad"
+      "tiempo": 2000,
+      "texto": "Por fin se hacía realidad",
+      "tiempo_fin": 3000
     },
     {
-      "tiempo": 0,
-      "texto": "Tanto oír hablar de tu silencio"
+      "tiempo": 3000,
+      "texto": "Tanto oír hablar de tu silencio",
+      "tiempo_fin": 5000
     },
     {
-      "tiempo": 0,
-      "texto": "Dicen que te arrastra como el mar"
+      "tiempo": 9000,
+      "texto": "Dicen que te arrastra como el mar",
+      "tiempo_fin": 12000
     },
     {
-      "tiempo": 0,
-      "texto": "Llené de libros mi maleta"
+      "tiempo": 12000,
+      "texto": "Llené de libros mi maleta",
+      "tiempo_fin": 13000
     },
     {
-      "tiempo": 0,
-      "texto": "También de fotos tuyas de antes"
+      "tiempo": 13000,
+      "texto": "También de fotos tuyas de antes",
+      "tiempo_fin": 14000
     },
     {
-      "tiempo": 0,
-      "texto": "Dibujé tu sonrisa junto a la mía"
+      "tiempo": 14000,
+      "texto": "Dibujé tu sonrisa junto a la mía",
+      "tiempo_fin": 16000
     },
     {
-      "tiempo": 0,
-      "texto": "Me dormí con tu abrigo en el sofá"
+      "tiempo": 16000,
+      "texto": "Me dormí con tu abrigo en el sofá",
+      "tiempo_fin": 18000
     },
     {
-      "tiempo": 0,
-      "texto": "Quiero estar a tu lado"
+      "tiempo": 18000,
+      "texto": "Quiero estar a tu lado",
+      "tiempo_fin": 20000
     },
     {
-      "tiempo": 0,
-      "texto": "Yo quiero mirarte y sentir"
+      "tiempo": 20000,
+      "texto": "Yo quiero mirarte y sentir",
+      "tiempo_fin": 21000
     },
     {
-      "tiempo": 0,
-      "texto": "Quiero perderme esperando"
+      "tiempo": 21000,
+      "texto": "Quiero perderme esperando",
+      "tiempo_fin": 24000
     },
     {
-      "tiempo": 0,
-      "texto": "Yo quiero quererte o morir"
+      "tiempo": 24000,
+      "texto": "Yo quiero quererte o morir",
+      "tiempo_fin": 25000
     },
     {
-      "tiempo": 0,
-      "texto": "Y en el momento que vi tu mirada buscando mi cara"
+      "tiempo": 25000,
+      "texto": "Y en el momento que vi tu mirada buscando mi cara",
+      "tiempo_fin": 27000
     },
     {
-      "tiempo": 0,
-      "texto": "La madrugada del 20 de enero saliendo del tren"
+      "tiempo": 27000,
+      "texto": "La madrugada del 20 de enero saliendo del tren",
+      "tiempo_fin": 30000
     },
     {
-      "tiempo": 0,
-      "texto": "Me pregunté qué sería sin ti el resto de mi vida"
+      "tiempo": 35000,
+      "texto": "Me pregunté qué sería sin ti el resto de mi vida",
+      "tiempo_fin": 37000
     },
     {
-      "tiempo": 0,
-      "texto": "Y desde entonces te quiero, te adoro y te vuelvo a querer"
+      "tiempo": 37000,
+      "texto": "Y desde entonces te quiero, te adoro y te vuelvo a querer",
+      "tiempo_fin": 38000
     },
     {
-      "tiempo": 0,
-      "texto": "Cogí un tren que no dormía"
+      "tiempo": 38000,
+      "texto": "Cogí un tren que no dormía",
+      "tiempo_fin": 39000
     },
     {
-      "tiempo": 0,
-      "texto": "Y vi tu cara en un cristal"
+      "tiempo": 39000,
+      "texto": "Y vi tu cara en un cristal",
+      "tiempo_fin": 41000
     },
     {
-      "tiempo": 0,
-      "texto": "Era un reflejo del sol de mediodía"
+      "tiempo": 41000,
+      "texto": "Era un reflejo del sol de mediodía",
+      "tiempo_fin": 42000
     },
     {
-      "tiempo": 0,
-      "texto": "Era un poema de amor para viajar"
+      "tiempo": 42000,
+      "texto": "Era un poema de amor para viajar",
+      "tiempo_fin": 45000
     },
     {
-      "tiempo": 0,
-      "texto": "Quiero estar a tu lado (quiero estar a tu lado)"
+      "tiempo": 45000,
+      "texto": "Quiero estar a tu lado (quiero estar a tu lado)",
+      "tiempo_fin": 47000
     },
     {
-      "tiempo": 0,
-      "texto": "Yo quiero mirarte y sentir"
+      "tiempo": 47000,
+      "texto": "Yo quiero mirarte y sentir",
+      "tiempo_fin": 48000
     },
     {
-      "tiempo": 0,
-      "texto": "Quiero perderme esperando"
+      "tiempo": 48000,
+      "texto": "Quiero perderme esperando",
+      "tiempo_fin": 49000
     },
     {
-      "tiempo": 0,
-      "texto": "Yo quiero quererte o morir"
+      "tiempo": 49000,
+      "texto": "Yo quiero quererte o morir",
+      "tiempo_fin": 50000
     },
     {
-      "tiempo": 0,
-      "texto": "Y en el momento que vi tu mirada buscando mi cara"
+      "tiempo": 50000,
+      "texto": "Y en el momento que vi tu mirada buscando mi cara",
+      "tiempo_fin": 52000
     },
     {
-      "tiempo": 0,
-      "texto": "La madrugada del 20 de enero saliendo del tren"
+      "tiempo": 52000,
+      "texto": "La madrugada del 20 de enero saliendo del tren",
+      "tiempo_fin": 54000
     },
     {
-      "tiempo": 0,
-      "texto": "Me pregunté qué sería sin ti el resto de mi vida"
+      "tiempo": 54000,
+      "texto": "Me pregunté qué sería sin ti el resto de mi vida",
+      "tiempo_fin": 55000
     },
     {
-      "tiempo": 0,
-      "texto": "Y desde entonces te quiero, te adoro y te vuelvo a querer"
+      "tiempo": 55000,
+      "texto": "Y desde entonces te quiero, te adoro y te vuelvo a querer",
+      "tiempo_fin": 56000
     },
     {
-      "tiempo": 0,
-      "texto": "Te perdí y no te perderé"
+      "tiempo": 56000,
+      "texto": "Te perdí y no te perderé",
+      "tiempo_fin": 57000
     },
     {
-      "tiempo": 0,
-      "texto": "Nunca más te dejaré"
+      "tiempo": 57000,
+      "texto": "Nunca más te dejaré",
+      "tiempo_fin": 59000
     },
     {
-      "tiempo": 0,
-      "texto": "Te busqué muy lejos de aquí (ah-ah, ah-ah)"
+      "tiempo": 59000,
+      "texto": "Te busqué muy lejos de aquí (ah-ah, ah-ah)",
+      "tiempo_fin": 61000
     },
     {
-      "tiempo": 0,
-      "texto": "Te encontré pensando en mí (ah-ah, ah-ah)"
+      "tiempo": 61000,
+      "texto": "Te encontré pensando en mí (ah-ah, ah-ah)",
+      "tiempo_fin": 64000
     },
     {
-      "tiempo": 0,
-      "texto": "Y en el momento que vi tu mirada buscando mi cara"
+      "tiempo": 64000,
+      "texto": "Y en el momento que vi tu mirada buscando mi cara",
+      "tiempo_fin": 70000
     },
     {
-      "tiempo": 0,
-      "texto": "La madrugada del 20 de enero saliendo del tren"
+      "tiempo": 70000,
+      "texto": "La madrugada del 20 de enero saliendo del tren",
+      "tiempo_fin": 71000
     },
     {
-      "tiempo": 0,
-      "texto": "Me pregunté qué sería sin ti el resto de mi vida"
+      "tiempo": 71000,
+      "texto": "Me pregunté qué sería sin ti el resto de mi vida",
+      "tiempo_fin": 72000
     },
     {
-      "tiempo": 0,
-      "texto": "Y desde entonces te quiero, te adoro y te vuelvo a querer"
+      "tiempo": 72000,
+      "texto": "Y desde entonces te quiero, te adoro y te vuelvo a querer",
+      "tiempo_fin": 75000
     }
   ]
 }

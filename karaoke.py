@@ -190,18 +190,29 @@ class KaraokeApp:
         self.lbl_sync_title = ttk.Label(frame_editor, text="Editor Visual", font=("Arial", 14, "bold"))
         self.lbl_sync_title.pack(pady=10)
         
+        # Selector de formato de tiempo
+        format_frame = ttk.Frame(frame_editor)
+        format_frame.pack(fill=tk.X, pady=5)
+        
+        ttk.Label(format_frame, text="Formato de tiempo:").pack(side=tk.LEFT, padx=5)
+        self.time_format_var = tk.StringVar(value="ms")
+        ttk.Radiobutton(format_frame, text="Milisegundos (ms)", variable=self.time_format_var, 
+                       value="ms", command=self.on_time_format_change).pack(side=tk.LEFT, padx=10)
+        ttk.Radiobutton(format_frame, text="Minutos:Segundos (mm:ss.ms)", variable=self.time_format_var, 
+                       value="mmss", command=self.on_time_format_change).pack(side=tk.LEFT, padx=10)
+        
         # Tabla (Treeview)
-        cols = ("#", "Inicio (ms)", "Fin (ms)", "Texto")
+        cols = ("#", "Inicio", "Fin", "Texto")
         self.tree = ttk.Treeview(frame_editor, columns=cols, show='headings', height=15)
         
         self.tree.heading("#", text="#")
-        self.tree.heading("Inicio (ms)", text="Inicio (ms)")
-        self.tree.heading("Fin (ms)", text="Fin (ms)")
+        self.tree.heading("Inicio", text="Inicio (ms)")
+        self.tree.heading("Fin", text="Fin (ms)")
         self.tree.heading("Texto", text="Texto")
         
         self.tree.column("#", width=40, anchor="center")
-        self.tree.column("Inicio (ms)", width=80, anchor="center")
-        self.tree.column("Fin (ms)", width=80, anchor="center")
+        self.tree.column("Inicio", width=100, anchor="center")
+        self.tree.column("Fin", width=100, anchor="center")
         self.tree.column("Texto", width=400, anchor="w")
         
         self.tree.pack(fill=tk.BOTH, expand=True, padx=5)
@@ -218,12 +229,12 @@ class KaraokeApp:
         edit_frame = ttk.LabelFrame(frame_editor, text="Edición", padding=10)
         edit_frame.pack(fill=tk.X, pady=10)
         
-        ttk.Label(edit_frame, text="Inicio (ms):").pack(side=tk.LEFT)
-        self.entry_time = ttk.Entry(edit_frame, width=10)
+        ttk.Label(edit_frame, text="Inicio:").pack(side=tk.LEFT)
+        self.entry_time = ttk.Entry(edit_frame, width=12)
         self.entry_time.pack(side=tk.LEFT, padx=5)
 
-        ttk.Label(edit_frame, text="Fin (ms):").pack(side=tk.LEFT, padx=(10,0))
-        self.entry_end_time = ttk.Entry(edit_frame, width=10)
+        ttk.Label(edit_frame, text="Fin:").pack(side=tk.LEFT, padx=(10,0))
+        self.entry_end_time = ttk.Entry(edit_frame, width=12)
         self.entry_end_time.pack(side=tk.LEFT, padx=5)
         
         ttk.Label(edit_frame, text="Texto:").pack(side=tk.LEFT, padx=(15, 0))
@@ -237,15 +248,143 @@ class KaraokeApp:
         actions_frame.pack(fill=tk.X, pady=5)
         
         ttk.Button(actions_frame, text="💾 GUARDAR CAMBIOS", command=self.save_sync_json).pack(side=tk.RIGHT, padx=5)
+        ttk.Button(actions_frame, text="🗑 Eliminar Línea", command=self.delete_sync_line).pack(side=tk.LEFT, padx=5)
+        ttk.Button(actions_frame, text="➕ Añadir Línea", command=self.add_sync_line).pack(side=tk.LEFT, padx=5)
 
     # --- Lógica Sync Tab ---
     
-    def refresh_sync_list(self):
-        self.gestor.cargar_canciones()
-        self.sync_listbox.delete(0, tk.END)
-        # Re-usamos lista del gestor
-        for c in self.gestor.canciones:
-            self.sync_listbox.insert(tk.END, f"{c.titulo} - {c.artista}")
+    def ms_to_mmss(self, ms: int) -> str:
+        """Convierte milisegundos a formato mm:ss.xxx"""
+        if ms <= 0:
+            return ""
+        total_seconds = ms / 1000
+        minutes = int(total_seconds // 60)
+        seconds = total_seconds % 60
+        return f"{minutes:02d}:{seconds:06.3f}"
+    
+    def mmss_to_ms(self, time_str: str) -> int:
+        """Convierte formato mm:ss.xxx a milisegundos. También acepta solo segundos o ms directos."""
+        time_str = time_str.strip()
+        if not time_str:
+            return 0
+        
+        try:
+            # Si contiene ':', es formato mm:ss
+            if ':' in time_str:
+                parts = time_str.split(':')
+                minutes = int(parts[0])
+                seconds = float(parts[1])
+                return int((minutes * 60 + seconds) * 1000)
+            else:
+                # Si es solo un número, asumimos que son milisegundos
+                return int(float(time_str))
+        except ValueError:
+            raise ValueError(f"Formato de tiempo inválido: {time_str}")
+    
+    def format_time_for_display(self, ms: int) -> str:
+        """Formatea el tiempo según el formato seleccionado."""
+        if self.time_format_var.get() == "mmss":
+            return self.ms_to_mmss(ms) if ms > 0 else ""
+        else:
+            return str(ms) if ms > 0 else ""
+    
+    def parse_time_from_input(self, time_str: str) -> int:
+        """Parsea el tiempo del input según el formato seleccionado."""
+        time_str = time_str.strip()
+        if not time_str:
+            return 0
+        
+        if self.time_format_var.get() == "mmss":
+            return self.mmss_to_ms(time_str)
+        else:
+            return int(time_str)
+    
+    def on_time_format_change(self):
+        """Actualiza la tabla y cabeceras cuando cambia el formato de tiempo."""
+        fmt = self.time_format_var.get()
+        
+        # Actualizar cabeceras de columnas
+        if fmt == "mmss":
+            self.tree.heading("Inicio", text="Inicio (mm:ss)")
+            self.tree.heading("Fin", text="Fin (mm:ss)")
+        else:
+            self.tree.heading("Inicio", text="Inicio (ms)")
+            self.tree.heading("Fin", text="Fin (ms)")
+        
+        # Refrescar tabla si hay canción cargada
+        if hasattr(self, 'current_sync_song') and self.current_sync_song:
+            self.populate_tree(self.current_sync_song)
+            
+            # Refrescar también los campos de edición si hay elemento seleccionado
+            if hasattr(self, 'selected_tree_item') and self.selected_tree_item:
+                self.on_select_row(None)
+    
+    def add_sync_line(self):
+        """Añade una nueva línea vacía debajo de la seleccionada."""
+        if not hasattr(self, 'current_sync_song') or not self.current_sync_song:
+            messagebox.showwarning("Aviso", "Seleccione una canción primero")
+            return
+        
+        # Determinar posición de inserción
+        insert_idx = len(self.current_sync_song.lineas)  # Por defecto al final
+        
+        if hasattr(self, 'selected_tree_item') and self.selected_tree_item:
+            try:
+                current_values = self.tree.item(self.selected_tree_item, "values")
+                idx_1based = int(current_values[0])
+                insert_idx = idx_1based  # Insertar después de la seleccionada (0-based sería idx_1based)
+            except:
+                pass
+        
+        # Crear nueva línea con valores por defecto
+        from karaoke_core import Linea
+        nueva_linea = Linea(tiempo=0, texto="Nueva línea", tiempo_fin=0)
+        
+        # Insertar en la posición
+        self.current_sync_song.lineas.insert(insert_idx, nueva_linea)
+        
+        # Refrescar la tabla
+        self.populate_tree(self.current_sync_song)
+        
+        # Seleccionar la nueva línea
+        children = self.tree.get_children()
+        if insert_idx < len(children):
+            new_item = children[insert_idx]
+            self.tree.selection_set(new_item)
+            self.tree.see(new_item)
+            self.selected_tree_item = new_item
+            # Cargar valores en los campos de edición
+            self.on_select_row(None)
+    
+    def delete_sync_line(self):
+        """Elimina la línea seleccionada."""
+        if not hasattr(self, 'current_sync_song') or not self.current_sync_song:
+            messagebox.showwarning("Aviso", "Seleccione una canción primero")
+            return
+        
+        if not hasattr(self, 'selected_tree_item') or not self.selected_tree_item:
+            messagebox.showwarning("Aviso", "Seleccione una línea para eliminar")
+            return
+        
+        try:
+            current_values = self.tree.item(self.selected_tree_item, "values")
+            idx_1based = int(current_values[0])
+            idx_0based = idx_1based - 1
+            
+            if 0 <= idx_0based < len(self.current_sync_song.lineas):
+                # Confirmar eliminación
+                texto_linea = self.current_sync_song.lineas[idx_0based].texto
+                if messagebox.askyesno("Confirmar", f"¿Eliminar la línea {idx_1based}?\n\"{texto_linea}\""):
+                    del self.current_sync_song.lineas[idx_0based]
+                    self.selected_tree_item = None
+                    self.populate_tree(self.current_sync_song)
+                    
+                    # Limpiar campos de edición
+                    self.entry_time.delete(0, tk.END)
+                    self.entry_end_time.delete(0, tk.END)
+                    self.entry_text.delete(0, tk.END)
+        except Exception as e:
+            messagebox.showerror("Error", f"Error al eliminar: {e}")
 
     def on_sync_select_song(self, event):
         selection = self.sync_listbox.curselection()
@@ -265,8 +404,9 @@ class KaraokeApp:
             self.tree.delete(item)
             
         for i, linea in enumerate(cancion.lineas):
-            fin = linea.tiempo_fin if linea.tiempo_fin > 0 else ""
-            self.tree.insert("", tk.END, values=(i+1, linea.tiempo, fin, linea.texto))
+            inicio_fmt = self.format_time_for_display(linea.tiempo) if linea.tiempo > 0 else "0" if self.time_format_var.get() == "ms" else "00:00.000"
+            fin_fmt = self.format_time_for_display(linea.tiempo_fin)
+            self.tree.insert("", tk.END, values=(i+1, inicio_fmt, fin_fmt, linea.texto))
             
     def on_select_row(self, event):
         item = self.tree.selection()
@@ -292,11 +432,12 @@ class KaraokeApp:
             return
         
         try:
-            new_time = int(self.entry_time.get())
+            # Usar las funciones de conversión según el formato seleccionado
+            new_time = self.parse_time_from_input(self.entry_time.get())
             new_text = self.entry_text.get()
             
             end_val = self.entry_end_time.get().strip()
-            new_end_time = int(end_val) if end_val else 0
+            new_end_time = self.parse_time_from_input(end_val) if end_val else 0
 
             # Obtener datos actuales para indice
             current_values = self.tree.item(self.selected_tree_item, "values")
@@ -328,8 +469,11 @@ class KaraokeApp:
             # Refrescar toda la tabla para ver cambios
             self.populate_tree(self.current_sync_song)
                 
-        except ValueError:
-            messagebox.showerror("Error", "Los tiempos deben ser números enteros")
+        except ValueError as e:
+            if self.time_format_var.get() == "mmss":
+                messagebox.showerror("Error", f"Formato de tiempo inválido. Use mm:ss.xxx (ej: 01:30.500)\n{e}")
+            else:
+                messagebox.showerror("Error", "Los tiempos deben ser números enteros (milisegundos)")
 
     def save_sync_json(self):
         if not hasattr(self, 'current_sync_song') or not self.current_sync_song:
@@ -395,27 +539,35 @@ class KaraokeApp:
     # --- Lógica de UI ---
 
     def refresh_song_list(self):
+        """Recarga todas las canciones del disco y actualiza ambas listas (reproductor y sincronizador)."""
         self.gestor.cargar_canciones()
-        self.filter_songs()
-        # Actualizar también la lista de la pestaña de sincronización
-        if hasattr(self, 'sync_listbox'):
-            self.refresh_sync_list()
+        self._update_player_listbox()
+        self._update_sync_listbox()
             
     def filter_songs(self, *args):
+        """Filtra la lista del reproductor según el texto de búsqueda.
+        Nota: NO recarga del disco ni afecta a la lista de sincronización."""
         query = self.search_var.get()
         canciones = self.gestor.buscar(query)
         self.listbox.delete(0, tk.END)
         for c in canciones:
             self.listbox.insert(tk.END, f"{c.titulo} - {c.artista}")
-        if hasattr(self, 'sync_listbox'):
-            self.refresh_sync_list()
             
+    def _update_player_listbox(self):
+        """Actualiza la listbox del reproductor con todas las canciones (respetando filtro)."""
+        self.filter_songs()
+    
+    def _update_sync_listbox(self):
+        """Actualiza la listbox de sincronización con las canciones del gestor."""
+        if hasattr(self, 'sync_listbox'):
+            self.sync_listbox.delete(0, tk.END)
+            for c in self.gestor.canciones:
+                self.sync_listbox.insert(tk.END, f"{c.titulo} - {c.artista}")
+    
     def refresh_sync_list(self):
-        # Nota: Ya no llamamos a self.gestor.cargar_canciones() aquí para evitar doble carga
-        # Se asume que gestor ya está actualizado
-        self.sync_listbox.delete(0, tk.END)
-        for c in self.gestor.canciones:
-            self.sync_listbox.insert(tk.END, f"{c.titulo} - {c.artista}")
+        """Recarga las canciones del disco y actualiza la lista de sincronización."""
+        self.gestor.cargar_canciones()
+        self._update_sync_listbox()
     
     def on_select_song(self, event):
         selection = self.listbox.curselection()
