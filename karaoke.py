@@ -248,6 +248,7 @@ class KaraokeApp:
         actions_frame.pack(fill=tk.X, pady=5)
         
         ttk.Button(actions_frame, text="💾 GUARDAR CAMBIOS", command=self.save_sync_json).pack(side=tk.RIGHT, padx=5)
+        ttk.Button(actions_frame, text="⏱ Calcular Duración", command=self.calcular_duracion).pack(side=tk.RIGHT, padx=5)
         ttk.Button(actions_frame, text="🗑 Eliminar Línea", command=self.delete_sync_line).pack(side=tk.LEFT, padx=5)
         ttk.Button(actions_frame, text="➕ Añadir Línea", command=self.add_sync_line).pack(side=tk.LEFT, padx=5)
 
@@ -386,6 +387,41 @@ class KaraokeApp:
         except Exception as e:
             messagebox.showerror("Error", f"Error al eliminar: {e}")
 
+    def calcular_duracion(self):
+        """Calcula la duración de la canción basándose en el tiempo_fin del último verso."""
+        if not hasattr(self, 'current_sync_song') or not self.current_sync_song:
+            messagebox.showwarning("Aviso", "Seleccione una canción primero")
+            return
+        
+        if not self.current_sync_song.lineas:
+            messagebox.showwarning("Aviso", "La canción no tiene líneas")
+            return
+        
+        # Buscar el mayor tiempo_fin entre todas las líneas
+        max_tiempo_fin = 0
+        for linea in self.current_sync_song.lineas:
+            if linea.tiempo_fin > max_tiempo_fin:
+                max_tiempo_fin = linea.tiempo_fin
+        
+        if max_tiempo_fin > 0:
+            old_duracion = self.current_sync_song.duracion
+            self.current_sync_song.duracion = max_tiempo_fin
+            
+            # Formatear para mostrar al usuario
+            segundos = max_tiempo_fin // 1000
+            mins = segundos // 60
+            secs = segundos % 60
+            
+            messagebox.showinfo("Duración Calculada", 
+                f"Duración actualizada:\n"
+                f"  Anterior: {old_duracion} ms\n"
+                f"  Nueva: {max_tiempo_fin} ms ({mins:02d}:{secs:02d})\n\n"
+                f"Recuerda guardar los cambios.")
+        else:
+            messagebox.showwarning("Aviso", 
+                "No se encontró ningún tiempo_fin > 0 en las líneas.\n"
+                "Edita las líneas para establecer los tiempos de fin.")
+
     def on_sync_select_song(self, event):
         selection = self.sync_listbox.curselection()
         if not selection:
@@ -465,6 +501,11 @@ class KaraokeApp:
                     # Solo actualizamos el inicio del siguiente si ha cambiado nuestro fin
                     if new_end_time != old_end_time:
                          next_line.tiempo = new_end_time
+                
+                # AUTO-CALCULAR DURACIÓN: Si es la última línea y la duración es 0
+                if idx_0based == len(self.current_sync_song.lineas) - 1:
+                    if new_end_time > 0 and self.current_sync_song.duracion == 0:
+                        self.current_sync_song.duracion = new_end_time
             
             # Refrescar toda la tabla para ver cambios
             self.populate_tree(self.current_sync_song)

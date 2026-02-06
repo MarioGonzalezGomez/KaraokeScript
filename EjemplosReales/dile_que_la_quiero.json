@@ -1,0 +1,278 @@
+{
+  "id": 27,
+  "titulo": "DILE QUE LA QUIERO",
+  "artista": "DAVID CIVERA",
+  "duracion": 0,
+  "lineas": [
+    {
+      "tiempo": 18000,
+      "texto": "Si la ves pregúntale",
+      "tiempo_fin": 20000
+    },
+    {
+      "tiempo": 20000,
+      "texto": "que siente,",
+      "tiempo_fin": 23000
+    },
+    {
+      "tiempo": 23000,
+      "texto": "si aún le queda algo",
+      "tiempo_fin": 24000
+    },
+    {
+      "tiempo": 24000,
+      "texto": "de ese amor que nos unió.",
+      "tiempo_fin": 27000
+    },
+    {
+      "tiempo": 27000,
+      "texto": "Si la encuentras",
+      "tiempo_fin": 29000
+    },
+    {
+      "tiempo": 29000,
+      "texto": "algo indiferente,",
+      "tiempo_fin": 31000
+    },
+    {
+      "tiempo": 31000,
+      "texto": "éntrala en razón",
+      "tiempo_fin": 33000
+    },
+    {
+      "tiempo": 33000,
+      "texto": "y hazme este favor.",
+      "tiempo_fin": 36000
+    },
+    {
+      "tiempo": 36000,
+      "texto": "Háblale, insístele",
+      "tiempo_fin": 40000
+    },
+    {
+      "tiempo": 40000,
+      "texto": "que nos han hecho daño,",
+      "tiempo_fin": 43000
+    },
+    {
+      "tiempo": 43000,
+      "texto": "que todo es mentira.",
+      "tiempo_fin": 46000
+    },
+    {
+      "tiempo": 46000,
+      "texto": "Dile que la quiero,",
+      "tiempo_fin": 48000
+    },
+    {
+      "tiempo": 48000,
+      "texto": "que siempre fui sincero,",
+      "tiempo_fin": 50000
+    },
+    {
+      "tiempo": 50000,
+      "texto": "dile que me estoy volviendo",
+      "tiempo_fin": 52000
+    },
+    {
+      "tiempo": 52000,
+      "texto": "loco por una tontería",
+      "tiempo_fin": 55000
+    },
+    {
+      "tiempo": 55000,
+      "texto": "Dile que navego",
+      "tiempo_fin": 57000
+    },
+    {
+      "tiempo": 57000,
+      "texto": "entre el amor y el miedo,",
+      "tiempo_fin": 59000
+    },
+    {
+      "tiempo": 59000,
+      "texto": "dile que me está matando",
+      "tiempo_fin": 62000
+    },
+    {
+      "tiempo": 62000,
+      "texto": "esta melancolía.",
+      "tiempo_fin": 64000
+    },
+    {
+      "tiempo": 64000,
+      "texto": "Dile, que la quiero",
+      "tiempo_fin": 66000
+    },
+    {
+      "tiempo": 66000,
+      "texto": "dile, que soy sincero",
+      "tiempo_fin": 69000
+    },
+    {
+      "tiempo": 69000,
+      "texto": "dile, dile que me está matando,",
+      "tiempo_fin": 72000
+    },
+    {
+      "tiempo": 72000,
+      "texto": "esta melancolía.",
+      "tiempo_fin": 74000
+    },
+    {
+      "tiempo": 82000,
+      "texto": "Si la ves recuérdale",
+      "tiempo_fin": 84000
+    },
+    {
+      "tiempo": 84000,
+      "texto": "que tiene",
+      "tiempo_fin": 86000
+    },
+    {
+      "tiempo": 86000,
+      "texto": "de par en par las puertas",
+      "tiempo_fin": 890000
+    },
+    {
+      "tiempo": 890000,
+      "texto": "de mi corazón.",
+      "tiempo_fin": 90000
+    },
+    {
+      "tiempo": 90000,
+      "texto": "Dile que mis lágrimas",
+      "tiempo_fin": 93000
+    },
+    {
+      "tiempo": 93000,
+      "texto": "no entienden",
+      "tiempo_fin": 95000
+    },
+    {
+      "tiempo": 95000,
+      "texto": "por qué no está conmigo",
+      "tiempo_fin": 97000
+    },
+    {
+      "tiempo": 97000,
+      "texto": "en esta habitación.",
+      "tiempo_fin": 100000
+    },
+    {
+      "tiempo": 100000,
+      "texto": "Háblale, insístele",
+      "tiempo_fin": 104000
+    },
+    {
+      "tiempo": 104000,
+      "texto": "que nos han hecho daño,",
+      "tiempo_fin": 107000
+    },
+    {
+      "tiempo": 107000,
+      "texto": "que todo es mentira.",
+      "tiempo_fin": 109000
+    },
+    {
+      "tiempo": 109000,
+      "texto": "Dile que la quiero,",
+      "tiempo_fin": 111000
+    },
+    {
+      "tiempo": 111000,
+      "texto": "que siempre fui sincero,",
+      "tiempo_fin": 114000
+    },
+    {
+      "tiempo": 114000,
+      "texto": "dile que me estoy volviendo loco",
+      "tiempo_fin": 117000
+    },
+    {
+      "tiempo": 117000,
+      "texto": "por una tontería",
+      "tiempo_fin": 118000
+    },
+    {
+      "tiempo": 118000,
+      "texto": "Dile que navego",
+      "tiempo_fin": 120000
+    },
+    {
+      "tiempo": 120000,
+      "texto": "entre el amor y el miedo,",
+      "tiempo_fin": 123000
+    },
+    {
+      "tiempo": 123000,
+      "texto": "dile que me está matando",
+      "tiempo_fin": 126000
+    },
+    {
+      "tiempo": 126000,
+      "texto": "esta melancolía.",
+      "tiempo_fin": 128000
+    },
+    {
+      "tiempo": 128000,
+      "texto": "Dile, dile, dile",
+      "tiempo_fin": 134000
+    },
+    {
+      "tiempo": 134000,
+      "texto": "Dile que me estoy volviendo loco",
+      "tiempo_fin": 137000
+    },
+    {
+      "tiempo": 137000,
+      "texto": "Dile, dile, dile",
+      "tiempo_fin": 143000
+    },
+    {
+      "tiempo": 143000,
+      "texto": "Dile que la quiero,",
+      "tiempo_fin": 148000
+    },
+    {
+      "tiempo": 148000,
+      "texto": "que siempre fui sincero,",
+      "tiempo_fin": 150000
+    },
+    {
+      "tiempo": 150000,
+      "texto": "dile que me estoy volviendo loco",
+      "tiempo_fin": 153000
+    },
+    {
+      "tiempo": 153000,
+      "texto": "por una tontería",
+      "tiempo_fin": 155000
+    },
+    {
+      "tiempo": 155000,
+      "texto": "Dile que navego",
+      "tiempo_fin": 157000
+    },
+    {
+      "tiempo": 157000,
+      "texto": "entre el amor y el miedo,",
+      "tiempo_fin": 160000
+    },
+    {
+      "tiempo": 160000,
+      "texto": "dile que me está matando",
+      "tiempo_fin": 163000
+    },
+    {
+      "tiempo": 163000,
+      "texto": "esta melancolía.",
+      "tiempo_fin": 164000
+    },
+    {
+      "tiempo": 164000,
+      "texto": "Dile...",
+      "tiempo_fin": 165000
+    }
+  ]
+}

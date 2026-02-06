@@ -1,0 +1,298 @@
+{
+  "id": 16,
+  "titulo": "DRAMAS Y COMEDIAS",
+  "artista": "ALASKA",
+  "duracion": 0,
+  "lineas": [
+    {
+      "tiempo": 3000,
+      "texto": "No quiero más dramas en mi vida",
+      "tiempo_fin": 7000
+    },
+    {
+      "tiempo": 7000,
+      "texto": "Sólo comedias entretenidas",
+      "tiempo_fin": 14000
+    },
+    {
+      "tiempo": 14000,
+      "texto": "Así que no me vengas con historias de celos",
+      "tiempo_fin": 21000
+    },
+    {
+      "tiempo": 21000,
+      "texto": "Llantos y tragedias, no",
+      "tiempo_fin": 25000
+    },
+    {
+      "tiempo": 27000,
+      "texto": "Si me llamas para lo de siempre",
+      "tiempo_fin": 31000
+    },
+    {
+      "tiempo": 33000,
+      "texto": "No te molestes",
+      "tiempo_fin": 35000
+    },
+    {
+      "tiempo": 35000,
+      "texto": "No me interesa ya",
+      "tiempo_fin": 39000
+    },
+    {
+      "tiempo": 39000,
+      "texto": "Lo repito, por si no lo entiendes",
+      "tiempo_fin": 45000
+    },
+    {
+      "tiempo": 45000,
+      "texto": "Me cansa estar triste",
+      "tiempo_fin": 48000
+    },
+    {
+      "tiempo": 48000,
+      "texto": "Y no me compensa más",
+      "tiempo_fin": 53000
+    },
+    {
+      "tiempo": 53000,
+      "texto": "He decidido enterrar el dolor y la pena",
+      "tiempo_fin": 58000
+    },
+    {
+      "tiempo": 58000,
+      "texto": "Voy a olvidarme de los problemas",
+      "tiempo_fin": 66000
+    },
+    {
+      "tiempo": 66000,
+      "texto": "No quiero más dramas en mi vida",
+      "tiempo_fin": 72000
+    },
+    {
+      "tiempo": 72000,
+      "texto": "Sólo comedias entretenidas",
+      "tiempo_fin": 79000
+    },
+    {
+      "tiempo": 79000,
+      "texto": "Así que no me vengas con historias de celos",
+      "tiempo_fin": 86000
+    },
+    {
+      "tiempo": 86000,
+      "texto": "Llantos y tragedias, no",
+      "tiempo_fin": 91000
+    },
+    {
+      "tiempo": 91000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 93000
+    },
+    {
+      "tiempo": 93000,
+      "texto": "Si todo es mentira",
+      "tiempo_fin": 95000
+    },
+    {
+      "tiempo": 95000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 96000
+    },
+    {
+      "tiempo": 96000,
+      "texto": "Deja que me ría",
+      "tiempo_fin": 98000
+    },
+    {
+      "tiempo": 98000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 99000
+    },
+    {
+      "tiempo": 99000,
+      "texto": "Si al final el día",
+      "tiempo_fin": 102000
+    },
+    {
+      "tiempo": 102000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 103000
+    },
+    {
+      "tiempo": 103000,
+      "texto": "Va a acabar, igual",
+      "tiempo_fin": 108000
+    },
+    {
+      "tiempo": 113000,
+      "texto": "Deja de quejarte sin descanso",
+      "tiempo_fin": 117000
+    },
+    {
+      "tiempo": 117000,
+      "texto": "Es aburrido",
+      "tiempo_fin": 120000
+    },
+    {
+      "tiempo": 120000,
+      "texto": "Y, ¿de qué sirve?",
+      "tiempo_fin": 124000
+    },
+    {
+      "tiempo": 124000,
+      "texto": "Piensa que el futuro sigue en blanco",
+      "tiempo_fin": 131000
+    },
+    {
+      "tiempo": 131000,
+      "texto": "Que nada está escrito",
+      "tiempo_fin": 134000
+    },
+    {
+      "tiempo": 134000,
+      "texto": "Que todo es posible",
+      "tiempo_fin": 138000
+    },
+    {
+      "tiempo": 138000,
+      "texto": "He conseguido borrar de un plumazo las fobias y manías",
+      "tiempo_fin": 146000
+    },
+    {
+      "tiempo": 146000,
+      "texto": "Ha sido fácil",
+      "tiempo_fin": 148000
+    },
+    {
+      "tiempo": 148000,
+      "texto": "Son tonterías",
+      "tiempo_fin": 154000
+    },
+    {
+      "tiempo": 154000,
+      "texto": "No quiero más dramas en mi vida",
+      "tiempo_fin": 158000
+    },
+    {
+      "tiempo": 158000,
+      "texto": "Sólo comedias entretenidas",
+      "tiempo_fin": 165000
+    },
+    {
+      "tiempo": 165000,
+      "texto": "Así que no me vengas con historias de celos",
+      "tiempo_fin": 172000
+    },
+    {
+      "tiempo": 172000,
+      "texto": "Llantos y tragedias, no",
+      "tiempo_fin": 177000
+    },
+    {
+      "tiempo": 177000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 178000
+    },
+    {
+      "tiempo": 178000,
+      "texto": "Si todo es mentira",
+      "tiempo_fin": 181000
+    },
+    {
+      "tiempo": 181000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 182000
+    },
+    {
+      "tiempo": 182000,
+      "texto": "Deja que me ría",
+      "tiempo_fin": 184000
+    },
+    {
+      "tiempo": 184000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 185000
+    },
+    {
+      "tiempo": 185000,
+      "texto": "Si al final el día",
+      "tiempo_fin": 188000
+    },
+    {
+      "tiempo": 188000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 189000
+    },
+    {
+      "tiempo": 189000,
+      "texto": "Va a acabar igual",
+      "tiempo_fin": 193000
+    },
+    {
+      "tiempo": 193000,
+      "texto": "No quiero más dramas en mi vida",
+      "tiempo_fin": 199000
+    },
+    {
+      "tiempo": 199000,
+      "texto": "Sólo comedias entretenidas",
+      "tiempo_fin": 206000
+    },
+    {
+      "tiempo": 206000,
+      "texto": "Así que no me vengas con historias de celos",
+      "tiempo_fin": 213000
+    },
+    {
+      "tiempo": 213000,
+      "texto": "Llantos y tragedias, no",
+      "tiempo_fin": 219000
+    },
+    {
+      "tiempo": 219000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 220000
+    },
+    {
+      "tiempo": 220000,
+      "texto": "Si todo es mentira",
+      "tiempo_fin": 222000
+    },
+    {
+      "tiempo": 222000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 223000
+    },
+    {
+      "tiempo": 223000,
+      "texto": "Deja que me ría",
+      "tiempo_fin": 225000
+    },
+    {
+      "tiempo": 225000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 226000
+    },
+    {
+      "tiempo": 226000,
+      "texto": "Si al final el día",
+      "tiempo_fin": 229000
+    },
+    {
+      "tiempo": 229000,
+      "texto": "¿Qué más da?",
+      "tiempo_fin": 230000
+    },
+    {
+      "tiempo": 230000,
+      "texto": "Va a acabar igual",
+      "tiempo_fin": 235000
+    },
+    {
+      "tiempo": 235000,
+      "texto": "No quiero más dramas en mi vida",
+      "tiempo_fin": 241000
+    }
+  ]
+}

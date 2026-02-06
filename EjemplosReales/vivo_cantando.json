@@ -1,0 +1,178 @@
+{
+  "id": 22,
+  "titulo": "VIVO CANTANDO",
+  "artista": "SALOMÉ",
+  "duracion": 0,
+  "lineas": [
+    {
+      "tiempo": 13000,
+      "texto": "Cuántas noches vagando",
+      "tiempo_fin": 16000
+    },
+    {
+      "tiempo": 16000,
+      "texto": "Por mil caminos sin fin",
+      "tiempo_fin": 21000
+    },
+    {
+      "tiempo": 23000,
+      "texto": "Cuántas noches callando",
+      "tiempo_fin": 26000
+    },
+    {
+      "tiempo": 26000,
+      "texto": "Cuánto te quise decir",
+      "tiempo_fin": 30000
+    },
+    {
+      "tiempo": 30000,
+      "texto": "Una profunda esperanza",
+      "tiempo_fin": 34000
+    },
+    {
+      "tiempo": 34000,
+      "texto": "Y un eco lejano me hablaba de ti",
+      "tiempo_fin": 39000
+    },
+    {
+      "tiempo": 42000,
+      "texto": "Desde que llegaste, ya no vivo llorando (Eh)",
+      "tiempo_fin": 46000
+    },
+    {
+      "tiempo": 46000,
+      "texto": "Vivo cantando (Eh)",
+      "tiempo_fin": 48000
+    },
+    {
+      "tiempo": 48000,
+      "texto": "Vivo soñando (Eh)",
+      "tiempo_fin": 49000
+    },
+    {
+      "tiempo": 49000,
+      "texto": "Solo quiero que me digas qué está pasando",
+      "tiempo_fin": 53000
+    },
+    {
+      "tiempo": 53000,
+      "texto": "Que estoy temblando de estar junto a ti",
+      "tiempo_fin": 57000
+    },
+    {
+      "tiempo": 57000,
+      "texto": "Desde que llegaste, ya no vivo llorando (Eh)",
+      "tiempo_fin": 61000
+    },
+    {
+      "tiempo": 61000,
+      "texto": "Vivo cantando (Eh)",
+      "tiempo_fin": 62000
+    },
+    {
+      "tiempo": 62000,
+      "texto": "Vivo soñando (Eh)",
+      "tiempo_fin": 64000
+    },
+    {
+      "tiempo": 64000,
+      "texto": "Pero me pregunto que tu amor hasta cuándo",
+      "tiempo_fin": 68000
+    },
+    {
+      "tiempo": 68000,
+      "texto": "Podré guardarlo muy dentro de mí",
+      "tiempo_fin": 71000
+    },
+    {
+      "tiempo": 71000,
+      "texto": "Desde que llegaste ya no vivo llorando (Eh)",
+      "tiempo_fin": 75000
+    },
+    {
+      "tiempo": 75000,
+      "texto": "Vivo cantando (Eh)",
+      "tiempo_fin": 77000
+    },
+    {
+      "tiempo": 77000,
+      "texto": "Vivo soñando (Eh)",
+      "tiempo_fin": 79000
+    },
+    {
+      "tiempo": 79000,
+      "texto": "Solo quiero que me digas qué está pasando",
+      "tiempo_fin": 82000
+    },
+    {
+      "tiempo": 82000,
+      "texto": "Que estoy temblando de estar junto a ti",
+      "tiempo_fin": 86000
+    },
+    {
+      "tiempo": 86000,
+      "texto": "Desde que llegaste ya no vivo llorando (Eh)",
+      "tiempo_fin": 90000
+    },
+    {
+      "tiempo": 90000,
+      "texto": "Vivo cantando (Eh)",
+      "tiempo_fin": 92000
+    },
+    {
+      "tiempo": 92000,
+      "texto": "Vivo soñando (Eh)",
+      "tiempo_fin": 93000
+    },
+    {
+      "tiempo": 93000,
+      "texto": "Pero me pregunto que tu amor hasta cuándo",
+      "tiempo_fin": 97000
+    },
+    {
+      "tiempo": 97000,
+      "texto": "Podré guardarlo muy dentro de mí",
+      "tiempo_fin": 101000
+    },
+    {
+      "tiempo": 101000,
+      "texto": "Desde que llegaste, ya no vivo llorando (Eh)",
+      "tiempo_fin": 105000
+    },
+    {
+      "tiempo": 105000,
+      "texto": "Vivo cantando (Eh)",
+      "tiempo_fin": 107000
+    },
+    {
+      "tiempo": 107000,
+      "texto": "Vivo soñando (Eh)",
+      "tiempo_fin": 108000
+    },
+    {
+      "tiempo": 108000,
+      "texto": "Solo quiero que me digas qué está pasando",
+      "tiempo_fin": 112000
+    },
+    {
+      "tiempo": 112000,
+      "texto": "Que estoy temblando de estar junto a ti",
+      "tiempo_fin": 116000
+    },
+    {
+      "tiempo": 116000,
+      "texto": "Que estoy temblando de estar junto a ti",
+      "tiempo_fin": 119000
+    },
+    {
+      "tiempo": 119000,
+      "texto": "Que estoy temblando de estar junto a ti (Eh, eh, eh)",
+      "tiempo_fin": 127000
+    },
+    {
+      "tiempo": 127000,
+      "texto": "Yeah",
+      "tiempo_fin": 133000
+    }
+  ]
+}

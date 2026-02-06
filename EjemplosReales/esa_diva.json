@@ -1,0 +1,238 @@
+{
+  "id": 20,
+  "titulo": "ESA DIVA",
+  "artista": "MELODY",
+  "duracion": 0,
+  "lineas": [
+    {
+      "tiempo": 3000,
+      "texto": "Desde que era bien pequeña",
+      "tiempo_fin": 5000
+    },
+    {
+      "tiempo": 6000,
+      "texto": "Antes de saber andar",
+      "tiempo_fin": 10000
+    },
+    {
+      "tiempo": 10000,
+      "texto": "Fui, del mundo, la rumbera",
+      "tiempo_fin": 13000
+    },
+    {
+      "tiempo": 13000,
+      "texto": "Para mí, era tan normal",
+      "tiempo_fin": 17000
+    },
+    {
+      "tiempo": 17000,
+      "texto": "Y descubrí a una suprema del teatro",
+      "tiempo_fin": 22000
+    },
+    {
+      "tiempo": 22000,
+      "texto": "Despreciando a los demás del camerino",
+      "tiempo_fin": 26000
+    },
+    {
+      "tiempo": 26000,
+      "texto": "Pero la supuesta diva por el eco de una vida",
+      "tiempo_fin": 30000
+    },
+    {
+      "tiempo": 30000,
+      "texto": "Que no le pertenecía, se embrujó",
+      "tiempo_fin": 35000
+    },
+    {
+      "tiempo": 35000,
+      "texto": "Una diva es sencilla como un simple mortal",
+      "tiempo_fin": 41000
+    },
+    {
+      "tiempo": 41000,
+      "texto": "Una diva no pisa a nadie para brillar",
+      "tiempo_fin": 44000
+    },
+    {
+      "tiempo": 44000,
+      "texto": "Su voz le hace grande, ¿qué más da",
+      "tiempo_fin": 48000
+    },
+    {
+      "tiempo": 48000,
+      "texto": "Si ella es libre cantando como un pez en el mar?",
+      "tiempo_fin": 52000
+    },
+    {
+      "tiempo": 52000,
+      "texto": "Una diva es valiente, poderosa",
+      "tiempo_fin": 56000
+    },
+    {
+      "tiempo": 56000,
+      "texto": "Su vida es un jardín lleno de espinas y rosas",
+      "tiempo_fin": 60000
+    },
+    {
+      "tiempo": 60000,
+      "texto": "Resurge bailando",
+      "tiempo_fin": 62000
+    },
+    {
+      "tiempo": 62000,
+      "texto": "Con más fuerza que un huracán",
+      "tiempo_fin": 66000
+    },
+    {
+      "tiempo": 66000,
+      "texto": "Es la madre que madruga",
+      "tiempo_fin": 71000
+    },
+    {
+      "tiempo": 71000,
+      "texto": "Es la artista sin cartel",
+      "tiempo_fin": 76000
+    },
+    {
+      "tiempo": 76000,
+      "texto": "Con dinero o sin fortuna",
+      "tiempo_fin": 80000
+    },
+    {
+      "tiempo": 80000,
+      "texto": "Ellas son divas también",
+      "tiempo_fin": 83000
+    },
+    {
+      "tiempo": 83000,
+      "texto": "No es la fama tu grandeza",
+      "tiempo_fin": 85000
+    },
+    {
+      "tiempo": 85000,
+      "texto": "La igualdad es mi bandera",
+      "tiempo_fin": 87000
+    },
+    {
+      "tiempo": 89000,
+      "texto": "Y la música es mi única ilusión",
+      "tiempo_fin": 91000
+    },
+    {
+      "tiempo": 91000,
+      "texto": "Oh-oh-oh-oh-oh-oh-oh",
+      "tiempo_fin": 93000
+    },
+    {
+      "tiempo": 94000,
+      "texto": "Una diva es sencilla como un simple mortal",
+      "tiempo_fin": 97000
+    },
+    {
+      "tiempo": 97000,
+      "texto": "Una diva no pisa a nadie para brillar",
+      "tiempo_fin": 101000
+    },
+    {
+      "tiempo": 101000,
+      "texto": "Su voz le hace grande, ¿qué más da",
+      "tiempo_fin": 104000
+    },
+    {
+      "tiempo": 104000,
+      "texto": "Si ella es libre cantando como un pez en el mar?",
+      "tiempo_fin": 108000
+    },
+    {
+      "tiempo": 108000,
+      "texto": "Una diva es valiente, poderosa",
+      "tiempo_fin": 112000
+    },
+    {
+      "tiempo": 112000,
+      "texto": "Su vida es un jardín lleno de espinas y rosas",
+      "tiempo_fin": 116000
+    },
+    {
+      "tiempo": 116000,
+      "texto": "Resurge bailando",
+      "tiempo_fin": 118000
+    },
+    {
+      "tiempo": 118000,
+      "texto": "Con más fuerza que un huracán",
+      "tiempo_fin": 122000
+    },
+    {
+      "tiempo": 122000,
+      "texto": "Ya verán",
+      "tiempo_fin": 124000
+    },
+    {
+      "tiempo": 124000,
+      "texto": "Diva, diva, diva, diva",
+      "tiempo_fin": 127000
+    },
+    {
+      "tiempo": 127000,
+      "texto": "Diva, diva, diva, diva",
+      "tiempo_fin": 129000
+    },
+    {
+      "tiempo": 129000,
+      "texto": "Oh-oh, oh-oh",
+      "tiempo_fin": 131000
+    },
+    {
+      "tiempo": 133000,
+      "texto": "Diva, diva, diva, diva",
+      "tiempo_fin": 134000
+    },
+    {
+      "tiempo": 135000,
+      "texto": "Diva, diva, diva, diva",
+      "tiempo_fin": 136000
+    },
+    {
+      "tiempo": 137000,
+      "texto": "Oh-oh, oh-oh",
+      "tiempo_fin": 138000
+    },
+    {
+      "tiempo": 139000,
+      "texto": "Somos divas, tú y yo, oh-ah-oh",
+      "tiempo_fin": 150000
+    },
+    {
+      "tiempo": 150000,
+      "texto": "Si ella es libre cantando como un pez en el mar",
+      "tiempo_fin": 154000
+    },
+    {
+      "tiempo": 154000,
+      "texto": "Una diva es valiente, poderosa",
+      "tiempo_fin": 158000
+    },
+    {
+      "tiempo": 158000,
+      "texto": "Su vida es un jardín lleno de espinas y rosas",
+      "tiempo_fin": 161000
+    },
+    {
+      "tiempo": 162000,
+      "texto": "Resurge bailando",
+      "tiempo_fin": 164000
+    },
+    {
+      "tiempo": 164000,
+      "texto": "Con más fuerza que un huracán",
+      "tiempo_fin": 168000
+    },
+    {
+      "tiempo": 168000,
+      "texto": "Ya verán, esa diva soy yo",
+      "tiempo_fin": 173000
+    }
+  ]
+}
