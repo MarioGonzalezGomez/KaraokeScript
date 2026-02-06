@@ -198,7 +198,7 @@ class KaraokeApp:
         self.time_format_var = tk.StringVar(value="ms")
         ttk.Radiobutton(format_frame, text="Milisegundos (ms)", variable=self.time_format_var, 
                        value="ms", command=self.on_time_format_change).pack(side=tk.LEFT, padx=10)
-        ttk.Radiobutton(format_frame, text="Minutos:Segundos (mm:ss.ms)", variable=self.time_format_var, 
+        ttk.Radiobutton(format_frame, text="Minutos:Segundos (mm:ss)", variable=self.time_format_var, 
                        value="mmss", command=self.on_time_format_change).pack(side=tk.LEFT, padx=10)
         
         # Tabla (Treeview)
@@ -254,13 +254,13 @@ class KaraokeApp:
     # --- Lógica Sync Tab ---
     
     def ms_to_mmss(self, ms: int) -> str:
-        """Convierte milisegundos a formato mm:ss.xxx"""
+        """Convierte milisegundos a formato mm:ss (redondeando a segundos)"""
         if ms <= 0:
             return ""
-        total_seconds = ms / 1000
+        total_seconds = round(ms / 1000)  # Redondear a segundos enteros
         minutes = int(total_seconds // 60)
-        seconds = total_seconds % 60
-        return f"{minutes:02d}:{seconds:06.3f}"
+        seconds = int(total_seconds % 60)
+        return f"{minutes:02d}:{seconds:02d}"
     
     def mmss_to_ms(self, time_str: str) -> int:
         """Convierte formato mm:ss.xxx a milisegundos. También acepta solo segundos o ms directos."""
@@ -284,7 +284,7 @@ class KaraokeApp:
     def format_time_for_display(self, ms: int) -> str:
         """Formatea el tiempo según el formato seleccionado."""
         if self.time_format_var.get() == "mmss":
-            return self.ms_to_mmss(ms) if ms > 0 else ""
+            return self.ms_to_mmss(ms) if ms > 0 else "00:00"
         else:
             return str(ms) if ms > 0 else ""
     
@@ -404,7 +404,7 @@ class KaraokeApp:
             self.tree.delete(item)
             
         for i, linea in enumerate(cancion.lineas):
-            inicio_fmt = self.format_time_for_display(linea.tiempo) if linea.tiempo > 0 else "0" if self.time_format_var.get() == "ms" else "00:00.000"
+            inicio_fmt = self.format_time_for_display(linea.tiempo) if linea.tiempo > 0 else "0" if self.time_format_var.get() == "ms" else "00:00"
             fin_fmt = self.format_time_for_display(linea.tiempo_fin)
             self.tree.insert("", tk.END, values=(i+1, inicio_fmt, fin_fmt, linea.texto))
             
@@ -471,7 +471,7 @@ class KaraokeApp:
                 
         except ValueError as e:
             if self.time_format_var.get() == "mmss":
-                messagebox.showerror("Error", f"Formato de tiempo inválido. Use mm:ss.xxx (ej: 01:30.500)\n{e}")
+                messagebox.showerror("Error", f"Formato de tiempo inválido. Use mm:ss (ej: 01:30)\n{e}")
             else:
                 messagebox.showerror("Error", "Los tiempos deben ser números enteros (milisegundos)")
 

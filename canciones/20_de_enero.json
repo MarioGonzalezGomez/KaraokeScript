@@ -7,10 +7,14 @@
     {
       "tiempo": 1000,
       "texto": "Pensé que era un buen momento",
-      "tiempo_fin": 2000
+      "tiempo_fin": 2500
     },
     {
-      "tiempo": 2000,
+      "tiempo": 0,
+      "texto": "Texto nuevo"
+    },
+    {
+      "tiempo": 2500,
       "texto": "Por fin se hacía realidad",
       "tiempo_fin": 3000
     },
